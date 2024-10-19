@@ -1,0 +1,13 @@
+
+maps-side-menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    max-width: 200px;
+}
+li{
+    cursor: pointer;
+    transition: 0.3s all;
+    list-style: none;
+}

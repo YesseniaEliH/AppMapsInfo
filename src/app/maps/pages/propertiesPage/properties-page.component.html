@@ -1,0 +1,17 @@
+<div class="ml-60">
+    <div class="p-4">
+        <h3 class="border-blue-400">Listado de propiedades</h3>
+    </div>
+
+    <div class="p-4 grid grid-cols-3 gap-3">
+        <!-- houses -->
+         <div *ngFor="let house of houses" class="max-w-sm rounded overflow-hidden shadow-lg">
+            <maps-mini-map [lngLat]="house.lngLat"/>
+            <img class="w-full" src="..." alt="Imagen de muestra">
+            <div class="font-bold text-xl mb-2">{{ house.title  }}</div>
+            <p class="text-gray-700 text-base">
+              {{ house.description }}
+            </p>
+         </div>
+    </div>
+</div>
