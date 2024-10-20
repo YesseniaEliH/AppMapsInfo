@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'
 
 import mapboxgl from 'mapbox-gl';
 (mapboxgl as any).accessToken = 'pk.eyJ1IjoieWVzc2VuaWFlbGlhbmEiLCJhIjoiY20xYTJ3OHk4MWpsOTJqb2piNjg5N2JmcyJ9.OMXfS7g_FClsLnUPQbf6Tw';
@@ -28,7 +29,8 @@ import { ZoomRangePageComponent } from './pages/zoom-range-page/zoom-range-page.
   ],
   imports: [
     CommonModule,
-    MapsRoutingModule
+    MapsRoutingModule,
+    HttpClientModule,
   ]
 })
 export class MapsModule { }

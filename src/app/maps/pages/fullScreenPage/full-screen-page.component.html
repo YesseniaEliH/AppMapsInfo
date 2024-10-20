@@ -1,4 +1,42 @@
-<div #map></div>
-<!-- <div class="z-50">
-    <input type="file" (change)="handleFileInput($event)" />
-</div> -->
+<div #map id="map"></div>
+
+
+    <div id="popup-container" class="popup-container">
+        <h3 class="text-lg font-semibold">Detalles del Polígono</h3>
+        
+        <h3 id="popup-title">Registro</h3>
+        
+        <form id="popup-form" class="space-y-3 max-h-[500px] overflow-y-auto">
+      
+            <label for="area" class="block text-sm font-medium text-gray-700">Área</label>
+            <input type="number" id="area" name="area" class="border rounded-lg p-2.5 w-full appearance-none text-sm rounded-lg bg-white border text-gray-700 focus:outline-none focus:bg-white focus:ring-blue-500 focus:border-blue-500"  />
+      
+            <label for="ancho" class="block text-sm font-medium text-gray-700">Ancho</label>
+            <input type="number" id="ancho" name="ancho" class="border rounded-lg p-2.5 w-full appearance-none text-sm rounded-lg bg-white border text-gray-700 focus:outline-none focus:bg-white focus:ring-blue-500 focus:border-blue-500"  />
+      
+            <label for="largo" class="block text-sm font-medium text-gray-700">Largo</label>
+            <input type="number" id="largo" name="largo" class="border rounded-lg p-2.5 w-full appearance-none text-sm rounded-lg bg-white border text-gray-700 focus:outline-none focus:bg-white focus:ring-blue-500 focus:border-blue-500"  />
+      
+            <label for="capacidad" class="block text-sm font-medium text-gray-700">Capacidad</label>
+            <input type="number" id="capacidad" name="capacidad" class="border rounded-lg p-2.5 w-full appearance-none text-sm rounded-lg bg-white border text-gray-700 focus:outline-none focus:bg-white focus:ring-blue-500 focus:border-blue-500"  />
+      
+            <label for="volumen" class="block text-sm font-medium text-gray-700">Volumen</label>
+            <input type="number" id="volumen" name="volumen" class="border rounded-lg p-2.5 w-full appearance-none text-sm rounded-lg bg-white border text-gray-700 focus:outline-none focus:bg-white focus:ring-blue-500 focus:border-blue-500"  />
+      
+            <label for="talud" class="block text-sm font-medium text-gray-700">Talud</label>
+            <input type="text" id="talud" name="talud" class="border rounded-lg p-2.5 w-full appearance-none text-sm rounded-lg bg-white border text-gray-700 focus:outline-none focus:bg-white focus:ring-blue-500 focus:border-blue-500"  />
+      
+            <label for="caracteristicas" class="block text-sm font-medium text-gray-700">Características Generales</label>
+            <textarea id="caracteristicas" name="caracteristicas" rows="2" class="mt-1 block border-gray-500 rounded-md shadow-sm focus:ring focus:ring-blue-300 w-full" required></textarea>
+      
+          <div class="justify-end space-x-2">
+            <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+              Guardar
+            </button>
+            <button type="button" class="inline-flex justify-center py-2 px-4 border border-gray-500 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" onclick="document.getElementById('popup-container').style.display='none'">
+              Cerrar
+            </button>
+          </div>
+        </form>
+      </div>
+
