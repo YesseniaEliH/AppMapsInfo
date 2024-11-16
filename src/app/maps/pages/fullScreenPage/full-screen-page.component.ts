@@ -85,30 +85,35 @@ export class FullScreenPageComponent implements AfterViewInit {
 
       if (features.length > 0) {
         this.nombreComponenteActual = features[0].properties.name;
+        const centroide = turf.centroid(features[0]);
+        const coordinates = centroide.geometry.coordinates;
+        
+        this.lngLatLike = { lng: coordinates[0], lat: coordinates[1] };
+        console.log( features[0].geometry.coordinates);
         this.openPopupOnPolygon();
       }
     });
 
-    // Ocultar popup al hacer clic en el mapa
-    // this.map.on('click', (e:any) => {
-    //   const popupContainer = document.getElementById('popup-container') as HTMLDivElement;
-    //   if (!popupContainer.contains(e.originalEvent.target as Node)) {
-    //     popupContainer.style.display = 'none'; // Ocultar el popup
-    //   }
-    // });
   }
 
   agregarMarcador(lngLatLike: LngLatLike){
     console.log(lngLatLike)
-    new Marker()
+    const markerSeleccionado = new Marker()
         .setLngLat(lngLatLike)
         .addTo(this.map);
-  }
+        this.flyTo(markerSeleccionado)
+      }
+  flyTo( marker: Marker ) {
+        this.map?.flyTo({
+            zoom:15,
+            center:marker.getLngLat()
+        })
+    }
     // Método para agregar el archivo KML al mapa
     private agregarKmlGeojsonMapa(kmlContent: string): void {
       const kmlDoc = new DOMParser().parseFromString(kmlContent, 'text/xml');
       const geoJson = kml(kmlDoc);
-  
+          console.log('geoJson: ', geoJson);
           this.map.addSource('poligonos', {
               type: 'geojson',
               data: geoJson
@@ -120,12 +125,31 @@ export class FullScreenPageComponent implements AfterViewInit {
               source: 'poligonos',
               layout: {},
               paint: {
-                  'fill-color': '#888888',
-                  'fill-opacity': 0.8
+                  'fill-color': '#fefec0',
+                  'fill-opacity': 0.6
               }
           });
 
+          // Cambiar el cursor al pasar sobre un polígono
+          this.map.on('mousemove', 'poligonos-layer', (e:any) => {
+            const features = this.map.queryRenderedFeatures(e.point, {
+              layers: ['poligonos-layer']
+            });
+          
+            // Si hay características en el punto, cambia el cursor a pointer
+            if (features.length > 0) {
+              this.map.getCanvas().style.cursor = 'pointer';
+            } else {
+              this.map.getCanvas().style.cursor = '';
+            }
+          });
+          // Restaurar el cursor cuando no esté sobre la capa
+          this.map.on('mouseleave', 'poligonos-layer', () => {
+            this.map.getCanvas().style.cursor = '';
+          });
+
           const geojsonData = this.map.getSource('poligonos')._data;
+          console.log('geojsonData', geojsonData);
           (geojsonData as any).features.forEach((feature: Feature<Geometry>) => {
             const centroide = turf.centroid(feature);
             const coordinates = centroide.geometry.coordinates;
@@ -150,7 +174,7 @@ export class FullScreenPageComponent implements AfterViewInit {
   }
 
   private cargarCapaKmz() {
-    const ruta = 'assets/archivos_kmz/Corte Colorado - Zona C.kmz';
+    const ruta = 'assets/archivos_kmz/huellas temporales.kmz';
     this.http.get(ruta, { responseType: 'blob' }).subscribe({
         next: (blob) => {
             const nombreArchivo = 'Corte Colorado - Zona C.kmz';

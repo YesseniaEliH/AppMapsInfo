@@ -1,8 +1,14 @@
-<ul class="list-disc bg-slate-400 ">
-    <li *ngFor="let item of MenuItems" 
-    [routerLink]="[item.route]"
-    routerLinkActive="active"
-    class="px-2 py-1 bg-gray-200 hover:bg-blue-700 hover:text-white">
-        {{ item.name}}
-    </li>
+<ul class="menu ">
+  <div class="toggle">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB7klEQVR4nO2WPShGURjHf75LUkJJKBkMioFFGbCwmA02vZlNDO9osRlltbDYLITi9T1gVAYGCSmJ8u3o1kOn6+N+uPe+9+b86qnbPec8z/M/5+mcBwyuqANWgCX5TiSdwDmgxK6AHhJEDpAGXkTAvJiSf2mZE2tKgTlJ+g0YB3Il8VGbuDJiSjNw5FBGvTKmZG6LbXxDK8UPyxAhA8CdBN4D6n+ZWwtsy9x7YFAbUz9Y6ORL+XwEnAaKXawrAqa0ddZ34TeJRyKkBtjUdjblw0dK1lo+trIhpAu4kCAnQNsffLWJj+9KKTQh1u0zAjxLgAWgPAC/FeJLAQ9hC7FfrWNAXoD+LV/DQH+YQpqAQ3F6DfQRDSpIIdYO3YrDA6CB6HiVuPopeaYAmPBxtQbJpBZ/QnLyRCWwLA6epb3IFkPAo/bKV7td2AGcycJToJ3s0wocS06XQLcb9U+yYBWoIj5UAIu2KvnSRZcAs7ZHyWo/4kaeLccZyf2TXRm4ibJR84my5bqjD64D+0BjgoQ0Ss4/tvlJEeKIERIRypzIfzsR5dP8xnHECMHbDsf+RNxihGBOxB2mtDyiTGkFtFMbtpY7sbdWBliLIM4n5h3BPIieUKa0XGJKyyPKlFbSS0vF3BzJxCBJ5WB6h2AwECLvVSqp4WT2eksAAAAASUVORK5CYII=">
+  </div>
+  <li *ngFor="let item of MenuItems; let in = index" 
+      [ngStyle]="{'--i': in}"
+      [routerLink]="[item.route]"
+      routerLinkActive="active"
+      class=" hover:text-white">
+      <a href="javascript:void(0)" >{{ item.name}}</a>
+  </li>
+  <div class="indicador"></div>
 </ul>
+
