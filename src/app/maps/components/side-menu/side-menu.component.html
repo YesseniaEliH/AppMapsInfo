@@ -2,7 +2,7 @@
   <div class="toggle">
     <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB7klEQVR4nO2WPShGURjHf75LUkJJKBkMioFFGbCwmA02vZlNDO9osRlltbDYLITi9T1gVAYGCSmJ8u3o1kOn6+N+uPe+9+b86qnbPec8z/M/5+mcBwyuqANWgCX5TiSdwDmgxK6AHhJEDpAGXkTAvJiSf2mZE2tKgTlJ+g0YB3Il8VGbuDJiSjNw5FBGvTKmZG6LbXxDK8UPyxAhA8CdBN4D6n+ZWwtsy9x7YFAbUz9Y6ORL+XwEnAaKXawrAqa0ddZ34TeJRyKkBtjUdjblw0dK1lo+trIhpAu4kCAnQNsffLWJj+9KKTQh1u0zAjxLgAWgPAC/FeJLAQ9hC7FfrWNAXoD+LV/DQH+YQpqAQ3F6DfQRDSpIIdYO3YrDA6CB6HiVuPopeaYAmPBxtQbJpBZ/QnLyRCWwLA6epb3IFkPAo/bKV7td2AGcycJToJ3s0wocS06XQLcb9U+yYBWoIj5UAIu2KvnSRZcAs7ZHyWo/4kaeLccZyf2TXRm4ibJR84my5bqjD64D+0BjgoQ0Ss4/tvlJEeKIERIRypzIfzsR5dP8xnHECMHbDsf+RNxihGBOxB2mtDyiTGkFtFMbtpY7sbdWBliLIM4n5h3BPIieUKa0XGJKyyPKlFbSS0vF3BzJxCBJ5WB6h2AwECLvVSqp4WT2eksAAAAASUVORK5CYII=">
   </div>
-  <li *ngFor="let item of MenuItems; let in = index" 
+  <li *ngFor="let item of MenuItems; let in = index"
       [ngStyle]="{'--i': in}"
       [routerLink]="[item.route]"
       routerLinkActive="active"
@@ -11,4 +11,58 @@
   </li>
   <div class="indicador"></div>
 </ul>
+
+
+<!-- menu de navegacion -->
+<nav>
+  <ul>
+    <li class="menu-info">
+      <button type="button" title="Informacion">
+        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#FFFFFF">
+          <path d="M431-330q1-72 16.5-105t58.5-72q42-38 64.5-70.5T593-647q0-45-30-75t-84-30q-52 0-80 29.5T358-661l-84-37q22-59 74.5-100.5T479-840q100 0 154 55.5T687-651q0 48-20.5 87T601-482q-49 47-59 72t-11 80H431Zm48 250q-29 0-49.5-20.5T409-150q0-29 20.5-49.5T479-220q29 0 49.5 20.5T549-150q0 29-20.5 49.5T479-80Z"/>
+        </svg>
+      </button>
+    <li class="menu-tools" title="Herramientas">
+      <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#FFFFFF">
+        <path d="M768-120 517-371l57-57 251 251-57 57Zm-581 0-57-57 290-290-107-107-23 23-44-44v85l-24 24-122-122 24-24h86l-48-48 131-131q17-17 37-23t44-6q24 0 44 8.5t37 25.5L348-699l48 48-24 24 104 104 122-122q-8-13-12.5-30t-4.5-36q0-53 38.5-91.5T711-841q15 0 25.5 3t17.5 8l-85 85 75 75 85-85q5 8 8.5 19.5T841-709q0 53-38.5 91.5T711-579q-18 0-31-2.5t-24-7.5L187-120Z"/>
+      </svg>
+    </li>
+    <li class="menu-analisis" title="Análisis espacial">
+      <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#FFFFFF">
+        <path d="M360-80q-10 0-18-5.5T331-101L228-450H80v-60h170q10 0 18 5.5t11 15.5l76 256 136-623q2-11 10-17.5t19-6.5q11 0 19 6t10 17l94 423 68-225q3-10 11-15.5t18-5.5q10 0 17.5 5t10.5 14l54 151h58v60h-80q-10 0-17.5-5.5T772-470l-30-83-74 252q-3 10-11 16t-18 5q-10-1-18-7t-10-16l-91-402-131 602q-2 10-10 16t-19 7Z"/>
+      </svg>
+    </li>
+    <li class="menu-busqueda" title="Busqueda y consultas" >
+      <button type="button" (click)="fnMenuSearch()">
+        <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px" fill="#FFFFFF">
+          <path d="M458-81q-79-4-148-37t-120-86.5q-51-53.5-80.5-124.27T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q149 0 259 94t135 236h-61q-17-84-71-150t-135-99v18q0 35-24 61t-59 26h-87v87q0 16.58-13.5 27.79T393-568h-83v88h110v125h-67L149-559q-5 20-7 39.67-2 19.66-2 39.33 0 135 91 233t227 106v60Zm392-26L716-241q-21 15-45.5 23t-50.07 8q-71.01 0-120.72-49.62Q450-309.24 450-380.12t49.62-120.38q49.62-49.5 120.5-49.5t120.38 49.71Q790-450.58 790-379.57q0 25.57-8.5 50.07T759-283l134 133-43 43ZM619.86-270Q666-270 698-301.86t32-78Q730-426 698.14-458t-78-32Q574-490 542-458.14t-32 78Q510-334 541.86-302t78 32Z"/>
+        </svg>
+      </button>
+    </li>
+  </ul>
+</nav>
+<!-- caja contenedora de prueba -->
+
+<section draggable="true" class="box" id="box-menu" [hidden]="hiddenBox">
+  <div class="box-header">
+    <h4>Busquedas y consultas</h4>
+    <button type="button" class="btn-close-menu"(click)="fnClose()" >x</button>
+  </div>
+  <div class="box-body">
+    <ul>
+      <li>
+        <a href="">item1</a>
+      </li>
+      <li>
+        <a href="">item2</a>
+      </li>
+      <li>
+        <a href="">item3</a>
+      </li>
+      <li>
+        <a href="">item4</a>
+      </li>
+    </ul>
+  </div>
+</section>
 
