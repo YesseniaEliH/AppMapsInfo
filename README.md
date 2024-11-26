@@ -1,4 +1,7 @@
 # AppMapsinfo
+- crear el archivo .env y crear la variable MAPBOX_KEY= como se muestra en .env.template
+- ejecutar npm install
+- prender el servidor con ng serve
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
