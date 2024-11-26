@@ -149,3 +149,90 @@ body {
 .menu li:nth-child(9).active ~ .indicador {
   transform: translateX(-103px) rotate(315deg);
 }
+nav ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 1px 1px 3px #2301e40e;
+  background-color: #2c94f5;
+  z-index: 999;
+}
+
+.menu-info{
+  top: 10em;
+  left:1em;
+}
+.menu-tools{
+  top: 9em;
+  left:4em;
+}
+.menu-analisis{
+  top:7em;
+  left:6.5em;
+}
+.menu-busqueda{
+  top:3.8em;
+  left: 6.5em;
+}
+nav ul li:hover{
+  background:linear-gradient(120deg, #02020f,#2c94f5);
+  box-shadow: 1px 2px 3px #2c94f5;
+  opacity: 1;
+  transition: transform 0.5s, opacity 0.5s;
+  transform: rotate(360deg);
+}
+.box{
+  position: absolute;
+  width:auto;
+  height:auto;
+  z-index: 999;
+  top: 6em;
+  left:11.5em;
+  border:solid 1px transparent;
+  border-radius: 4px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: small;
+  /* background-color: #056896; */
+
+}
+.box-header{
+  background: linear-gradient(120deg,#02024b,#1773cf,#06b0f3,#02024b);
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  width: 15em;
+  height: fit-content;
+  border:solid 1px #2c94f5;
+  border-radius: 4px 4px 0 0;
+  cursor: move;
+
+  .btn-close-menu:hover{
+    text-shadow: #000003;
+  }
+}
+
+
+.box-body>ul>li{
+  padding:0.5em 1em;
+  background-color: #2c94f5;
+  opacity: 0.9;
+  border-radius: 0;
+  border:solid 1px transparent;
+}
+.box-body>ul>li:last-of-type{
+  border-radius: 0 0 4px 4px;
+}
+.box-body>ul>li:hover{
+  background-color: #fff;
+  border:solid 1px #06b0f3;
+  color: #2c94f5;
+  font-weight: 700;
+  z-index: 999;
+}
