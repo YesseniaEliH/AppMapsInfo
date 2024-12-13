@@ -6,31 +6,28 @@ import mapboxgl from 'mapbox-gl';
 (mapboxgl as any).accessToken = 'pk.eyJ1IjoieWVzc2VuaWFlbGlhbmEiLCJhIjoiY20xYTJ3OHk4MWpsOTJqb2piNjg5N2JmcyJ9.OMXfS7g_FClsLnUPQbf6Tw';
 
 import { MapsRoutingModule } from './maps-routing.module';
-import { MiniMapComponent } from './components/mini-map/mini-map.component';
-import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { MapsLayoutComponent } from './layout/mapsLayout/mapsLayout.component';
+
+import { CdkDrag} from '@angular/cdk/drag-drop';
+import { SearchInMapsComponent } from "./components/searchInMaps/searchInMaps.component";
+import { TableComponent } from './components/table/table.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { FullScreenPageComponent } from './pages/fullScreenPage/full-screen-page.component';
-import { MarkersPageComponent } from './pages/markersPage/markers-page.component';
-import { PropertiesPageComponent } from './pages/propertiesPage/properties-page.component';
-import { ZoomRangePageComponent } from './pages/zoom-range-page/zoom-range-page.component';
-
-
-
 
 @NgModule({
   declarations: [
-    MiniMapComponent,
-    SideMenuComponent,
     MapsLayoutComponent,
-    FullScreenPageComponent,
-    MarkersPageComponent,
-    PropertiesPageComponent,
-    ZoomRangePageComponent
+    SideMenuComponent,
+    FullScreenPageComponent
   ],
   imports: [
     CommonModule,
     MapsRoutingModule,
     HttpClientModule,
-  ]
+    CdkDrag,
+    SearchInMapsComponent,
+    TableComponent,
+
+]
 })
 export class MapsModule { }
