@@ -4,4 +4,4 @@ import { Component } from '@angular/core';
     templateUrl: './mapsLayout.component.html',
     styleUrl: './mapsLayout.component.css',
 })
-export class MapsLayoutComponent { }
+export class MapsLayoutComponent {}

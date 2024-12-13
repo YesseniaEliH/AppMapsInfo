@@ -1,0 +1,39 @@
+@if (hiddenBoxSearch) {
+  <section class="box search-box" cdkDrag>
+    <div class="box-header" >
+      <h4>Buscar Componente Minero</h4>
+      <button type="button" class="btn-close"(click)="fnClose()" >X</button>
+    </div>
+    <div class="box-body search-box-body">
+      <form action="" method="post" class="search-form">
+        <div class="form-div">
+          <label for="code">Código:</label>
+          <input type="text" name="code" id="code">
+        </div>
+        <div class="form-div">
+          <label for="name">Nombre:</label>
+          <input type="text" name="name" id="name">
+        </div>
+        <div class="form-buttons">
+          <button type="button" class="button-clean" (click)="fnInputsClean()">
+            <svg class="h-6 w-6 text-rose-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <path d="M19 19h-11l-4 -4a1 1 0 0 1 0 -1.41l10 -10a1 1 0 0 1 1.41 0l5 5a1 1 0 0 1 0 1.41l-9 9" />
+              <path d="M18 12.3l-6.3 -6.3"/>
+            </svg>
+            &nbsp;Limpiar
+          </button>
+          <button type="button" class="button-search"(click)="fnOpenTableComponent()" >
+            <svg class="h-6 w-6 text-rose-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path stroke="none" d="M0 0h24v24H0z"/>
+              <circle cx="10" cy="10" r="7" />
+              <line x1="21" y1="21" x2="15" y2="15" />
+            </svg>
+            &nbsp;Buscar
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+}
+<app-table [showBoxTable]="showTable" (clickButtonX)="fnCloseTableComponent()"/>

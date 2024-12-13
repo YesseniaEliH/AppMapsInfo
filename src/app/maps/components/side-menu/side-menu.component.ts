@@ -1,99 +1,54 @@
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-
-
-interface MenuItem {
-  name: string;
-  route: string;
-}
+import { Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'maps-side-menu',
   templateUrl: './side-menu.component.html',
   styleUrl: './side-menu.component.css',
-  encapsulation: ViewEncapsulation.None,
 })
 
-export class SideMenuComponent  implements OnInit {
-  constructor(){
+export class SideMenuComponent implements OnInit {
+  showSearchComponent:boolean=false;
 
-  }
-  hiddenBox:boolean=true;
+  hiddenBoxSearchQueries:boolean=true;
+  hiddenBoxAnalysis: boolean=true;
+  hiddenBoxTools:boolean=true;
+  hiddenBoxInfo:boolean=true;
 
-  cursor:any={};
-  box:any={};
+  constructor(
 
+  ){}
 
-  public MenuItems: MenuItem[] = [
-    { route: '/maps/fullscreen', name: 'Registro'},
-    { route: '/maps/zoom-range', name: 'Zoom'},
-    { route: '/maps/markers', name: 'Markers'},
-    // { route: '/maps/properties', name: 'Houses'}
-  ]
-
-  ngOnInit (): void {
-    console.log('iniciando');
-    let caja =document.querySelector('#box-menu');
-    let getB= caja?.getBoundingClientRect();
-    document.addEventListener('mousedown', (event) => {
-      if (caja) {
-        this.cursor ={
-          x:event.clientX,
-          y:event.clientY
-        }
-        this.box={
-          dom:event.target,
-          x:getB?.left,
-          y:getB?.top
-        }
-        console.log('ev=',this.cursor);
-        console.log('dom',event);
-        console.log('getBoundy',this.box);
-      }
-    })
-
-
-    console.log(caja,'= caja');
-
-    // document.addEventListener('mousemove',(event)=>{
-    //   if (this.box.dom==null) return;
-    //   let currentCursor ={
-    //     x:event.clientX,
-    //     y:event.clientY
-    //   }
-    //   let distance ={
-    //     x:currentCursor.x - this.cursor.x,
-    //     y:currentCursor.y - this.cursor.y
-    //   }
-    //   console.log(currentCursor,'cursor actual');
-    //   console.log('distance',distance);
-    // });
+  ngOnInit(): void {
+    console.log('side menu');
 
   }
 
-  ngAfterViewInit() {
-    const menuToggle = document.querySelector('.toggle');
-    const menu = document.querySelector('.menu');
-
-    if (menuToggle && menu) {
-      menuToggle.addEventListener('click', () => {
-        menu.classList.toggle('active');
-        menuToggle.classList.toggle('active');
-      });
-    }
-
-    const list = document.querySelectorAll('li');
-    list.forEach((item) => {
-      item.addEventListener('click', function() {
-        list.forEach((item) => item.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
+  fnSearchQueriesMenu() {
+    this.hiddenBoxSearchQueries=false;
   }
-  fnMenuSearch(){
-    this.hiddenBox=false;
+  fnAnalysisMenu(){
+    this.hiddenBoxAnalysis=false;
   }
-  fnClose(){
-    this.hiddenBox=true;
+  fnToolsMenu(){
+    this.hiddenBoxTools=false;
+  }
+  fnInfoMenu(){
+    this.hiddenBoxInfo=false;
+  }
+  fnCloseButtonSearchQueries(){this.hiddenBoxSearchQueries=true;}
+  fnCloseButtonAnalysis(){this.hiddenBoxAnalysis=true;}
+  fnCloseButtonTools(){this.hiddenBoxTools=true;}
+  fnCloseButtonInfo(){this.hiddenBoxInfo=true;}
+
+
+  fnOpenSearchMenu(){
+    this.showSearchComponent=true;
+    console.log('search se abrio');
+  }
+
+  fnCloseSearchComponent(data:boolean){
+    this.showSearchComponent=data;
+    console.log('Se hizo click en el boton x de search component',data);
   }
 
 }

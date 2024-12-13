@@ -1,0 +1,105 @@
+[
+  {
+    "listClass": "search-queries",
+    "id":"searchQueriesMenu",
+    "menuIcon":"searchQueries",
+    "title":"Búsquedas y Consultas",
+    "subMenuItems":[
+      {"class":"searchQueriesMenu","itemIcon":"","name":"Consulta Geológica"},
+      {"class":"searchQueriesMenu","itemIcon":"","name":"Plano catastral A4"},
+      {"class":"searchQueriesMenu","itemIcon":"","name":"Catastro x Región"},
+      {"class":"searchQueriesMenu","itemIcon":"","name":"Ubicar Coordenada"}
+    ],
+    "route": "/maps/searchAndQueries",
+    "nameRoute": "Busqueda y consultas"
+  },
+  {
+    "listClass": "spatial-analysis",
+    "id":"analysisMenu",
+    "menuIcon":"analysis",
+    "title":"Análisis Espacial",
+    "subMenuItems":[
+      {"id":"analysisMenu","itemIcon":"","name":"Mapa de peligrosos geológicos"},
+      {"id":"analysisMenu","itemIcon":"","name":"Análisis de riesgo geológico"},
+      {"id":"analysisMenu","itemIcon":"","name":"Mapa de calor"}
+    ],
+    "route": "/maps/spatialAnalysis",
+    "nameRoute": "Análisis espacial"
+  },
+  {
+    "listClass": "tools",
+    "id":"toolsMenu",
+    "menuIcon":"tools",
+    "title":"Herramientas",
+    "subMenuItems":[
+      {"itemIcon":"","name":"Identificar"},
+      {"itemIcon":"","name":"Leyenda"},
+      {"itemIcon":"","name":"Medir"},
+      {"itemIcon":"","name":"Añadir datos"},
+      {"itemIcon":"","name":"Compartir mapa"},
+      {"itemIcon":"","name":"Importar Excel"}
+    ],
+    "route": "/maps/tools",
+    "nameRoute": "Herramientas"
+  },
+  {
+    "listClass": "info",
+    "id":"infoMenu",
+    "menuIcon":"question_mark",
+    "title":"Información",
+    "subMenuItems":[
+      {"itemIcon":"info","name":"Acerca de"},
+      {"itemIcon":"userManual","name":"Manual de Incroma"}
+    ],
+    "route": "/maps/info",
+    "nameRoute": "Información"
+  },
+  {
+    "listClass": "home",
+    "id":"homeMenu",
+    "menuIcon":"home",
+    "title":"Inicio",
+    "subMenuItems":[],
+    "route": "/maps/fullscreen",
+    "nameRoute": "Registro"
+  },
+  {
+    "listClass": "stacks",
+    "id":"stacksMenu",
+    "menuIcon":"stacks",
+    "title":"Capas",
+    "subMenuItems":[
+      {"itemIcon":"","name":""},
+      {"itemIcon":"","name":""}
+    ],
+    "route": "/maps/stacks",
+    "nameRoute":"Capas"
+  },
+  {
+    "listClass": "location",
+    "id":"locationMenu",
+    "menuIcon":"location",
+    "title":"Ubicación"
+  },
+  {
+    "listClass": "zoomIn",
+    "id":"zoomInMenu",
+    "menuIcon":"zoom_in",
+    "title":"Zoom (+)"
+  },
+  {
+    "listClass": "zoomOut",
+    "id":"zoomOutMenu",
+    "menuIcon":"zoom_out",
+    "title":"Zoom (-)"
+  },
+  {
+    "listClass": "search",
+    "id":"searchMenu",
+    "menuIcon":"search",
+    "title":"Búsqueda",
+    "subMenuItems":[],
+    "route": "",
+    "nameRoute": ""
+  }
+]
