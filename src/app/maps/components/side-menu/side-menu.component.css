@@ -18,7 +18,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top:2.5em;
+  top:2em;
   left:0.5em;
   box-shadow: 0px 5px 15px #7381a5;
   animation: round 30s linear infinite;
@@ -81,18 +81,18 @@ nav ul li:hover{
 }
 .search-queries{
   top:3em;
-  left:6em;
+  left:6.5em;
 }
 .spatial-analysis{
   top:5.5em;
-  left:6.25em;
+  left:6.5em;
 }
 .tools{
   top:7.5em;
   left:4.75em;
 }
 .info{
-  top:8.5em;
+  top:8em;
   left:2.5em;
 }
 .home{
@@ -164,4 +164,11 @@ nav ul li:hover{
   .box-header{
     min-width:5.5em;
   }
+}
+.boundary{
+  width: 400px;
+  height: 600px;
+  max-width: 100%;
+  z-index: 9999;
+  border: dotted #db2121 7px;
 }
