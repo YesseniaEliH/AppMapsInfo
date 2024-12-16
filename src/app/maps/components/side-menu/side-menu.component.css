@@ -20,7 +20,7 @@
   position: absolute;
   top:2em;
   left:0.5em;
-  box-shadow: 0px 5px 15px #7381a5;
+  box-shadow: 0 0.3125em 1em #7381a5;
   animation: round 30s linear infinite;
 }
 @keyframes round{
@@ -28,7 +28,7 @@
     background-position-x:0 ;
   }
   100% {
-    background-position-x:-800px;
+    background-position-x:-50em;
   }
 }
 .logo-name{
@@ -54,13 +54,13 @@
     background-position: 100% 50%;
   }
 }
-nav ul li {
+nav>ul>li {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 32px;
-  height: 32px;
-  padding: 4px;
+  width: 2em;
+  height:2em;
+  padding: 0.25em;
   border-radius: 50%;
   position: absolute;
   background:linear-gradient(120deg,#000005, #011020, #2468fc,#2c94f5);
@@ -71,8 +71,8 @@ nav ul li {
 
 }
 nav>ul>li>button>img{
-  width: 25px !important;
-  height: 25px !important;
+  width: 1.5em !important;
+  height: 1.5em!important;
 }
 nav ul li:hover{
   background:linear-gradient(120deg, #000005, #2468fc,#2c94f5);
@@ -96,27 +96,27 @@ nav ul li:hover{
   left:2.5em;
 }
 .home{
-  top: 16.25em;
+  top: 12em;
   left:0.5em;
 }
 .stacks{
-  top:19em;
+  top:14.25em;
   left:0.5em;
 }
 .location{
-  top:21.75em;
+  top:16.5em;
   left:0.5em;
 }
 .zoomIn{
-  top:24.5em;
+  top:18.75em;
   left:0.5em;
 }
 .zoomOut{
-  top: 27.25em;
+  top: 21em;
   left:0.5em;
 }
 .search{
-  top: 30em;
+  top:23.185em;
   left:0.5em;
 }
 
@@ -129,7 +129,7 @@ nav ul li:hover{
   border:solid 1px transparent;
 }
 .submenu-list>li:last-of-type{
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 0.25em 0.25em;
 }
 .submenu-list>li:hover{
   z-index: 999;
@@ -172,3 +172,42 @@ nav ul li:hover{
   z-index: 9999;
   border: dotted #db2121 7px;
 }
+/* reposnsive */
+@media (90em < width <97.5em) {
+  nav >ul> li {
+    width:2.25em;
+    height:2.25em;
+  }
+  .search-queries{
+    top:3em;
+  }
+  .spatial-analysis{
+    top:6em;
+    left:6em;
+  }
+  .tools{
+    top:7.75em;
+    left:3.5em;
+  }
+  .info{
+    top:8em;
+    left:0.5em;
+  }
+  .stacks{
+    top:14.75em;
+  }
+  .location{
+    top:17.5em;
+  }
+  .zoomIn{
+    top: 20.25em;
+  }
+  .zoomOut{
+    top: 23em;
+    }
+  .search{
+    top:25.75em;
+    left:0.5em;
+  }
+}
+
