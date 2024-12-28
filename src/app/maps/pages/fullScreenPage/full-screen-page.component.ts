@@ -21,20 +21,20 @@ export class FullScreenPageComponent implements AfterViewInit {
   public divMap?: ElementRef;
   private map:any;
   public archivoCapaCorteColorado?: File = new File([], '');
-  public currentLngLat:LngLat = new LngLat(-77.44549323587496, -8.062239991124962);
+  public currentLngLat:LngLat = new LngLat(-71.015152, -9.409047);
   public lngLatLike:LngLatLike = {lng:0,lat:0}; ;
   public nombreComponenteActual: string = "";
+  public zoom:number = 3.5;
 
 
   ngAfterViewInit(): void {
-    console.log('divmap',this.divMap);
     if ( !this.divMap )  throw new Error('El elemento HTML no fue encontrado');
 
     this.map = new Map({
       container: this.divMap?.nativeElement,
       style: 'mapbox://styles/mapbox/satellite-v9',
       center: this.currentLngLat,
-      zoom:3,
+      zoom:this.zoom,
       minZoom:3,
       antialias: true,
       maxTileCacheSize: 3000,
@@ -137,10 +137,10 @@ export class FullScreenPageComponent implements AfterViewInit {
   }
 
   private cargarCapaKmz() {
-    const ruta = 'assets/archivos_kmz/huellas temporales.kmz';
+    const ruta = 'assets/archivos_kmz/Componentes Aprobados_V4.kmz';
     this.http.get(ruta, { responseType: 'blob' }).subscribe({
       next: (blob) => {
-        const nombreArchivo = 'Corte Colorado - Zona C.kmz';
+        const nombreArchivo = 'Componentes Aprobados_V4';
         const tipoArchivo = 'application/vnd.google-earth.kmz'; // Tipo MIME para archivos KMZ
         this.archivoCapaCorteColorado = new File([blob], nombreArchivo, { type: tipoArchivo });
         this.descomprimirKmzFile(this.archivoCapaCorteColorado);
@@ -149,5 +149,41 @@ export class FullScreenPageComponent implements AfterViewInit {
         console.error('Error al cargar el archivo', error);
       }
     });
+  }
+
+  // métodos para manejar el zoom
+
+  mapListeners() {
+    if(!this.map) throw 'Mapa no inicializado'
+    
+    this.map.on('zoom', (event:any) =>{
+        console.log(event);
+        this.zoom = this.map!.getZoom();
+    }),
+
+    this.map.on('zoomend', (event:any) =>{
+        if (this.map!.getZoom() < 18) return
+        this.map!.zoomTo(18)
+    });
+
+    this.map.on('move', () =>{
+        this.currentLngLat = this.map!.getCenter();
+        const { lng,lat } = this.currentLngLat
+        console.log(lng,lat);
+    });
+  }
+
+  zoomIn(){
+      this.map?.zoomIn();
+  }
+
+  zoomOut(){
+      this.map?.zoomOut();
+  }
+
+  zoomChanged(value: string){
+      this.zoom = Number(value);
+      this.map?.zoomTo(this.zoom);
+
   }
 }

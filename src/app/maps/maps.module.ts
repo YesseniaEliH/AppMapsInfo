@@ -13,6 +13,7 @@ import { SearchInMapsComponent } from "./components/searchInMaps/searchInMaps.co
 import { TableComponent } from './components/table/table.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { FullScreenPageComponent } from './pages/fullScreenPage/full-screen-page.component';
+import { MapService } from './services/map.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { FullScreenPageComponent } from './pages/fullScreenPage/full-screen-page
     CdkDrag,
     SearchInMapsComponent,
     TableComponent,
-
-]
+  ],
+  providers: [ 
+    MapService, 
+  ]
 })
 export class MapsModule { }
