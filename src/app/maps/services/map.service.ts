@@ -1,27 +1,55 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LngLat, Map } from 'mapbox-gl';
+import mapboxgl, {Map, LngLat} from 'mapbox-gl';
+import { environment } from './../../../environments/environments';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MapService {
-  private map : Map | undefined;
-  
-  constructor(private readonly http: HttpClient) {}
-  
+  map!: Map;
+  mapStyle:string = 'mapbox://styles/mapbox/satellite-v9';
+  lat: number = -8.062239991124962;
+  lng:number = -77.4454932358746;
+  zoom:number = 3
+  public currentLngLat:LngLat | undefined;
 
-  
-  toLoadMap(referencia:any, capaBase:string='mapbox://styles/mapbox/satellite-v9', latitudLongitud:LngLat, zoom:number=3) {
-   if ( !referencia )  throw new Error('El elemento HTML no fue encontrado');
-   this.map = new Map({
-     container: referencia,
-     style: capaBase,
-     center: latitudLongitud,
-     zoom:zoom,
-     minZoom:3,
-     antialias: true,
-     maxTileCacheSize: 3000,
-   });
+  constructor(){
+    mapboxgl.accessToken = environment.mapbox_key;
   }
+
+  toLoadMap() {
+    this.map = new Map({
+      container: 'map',
+      style: this.mapStyle,
+      zoom: this.zoom,
+      minZoom:3,
+      center: [this.lng, this.lat],
+      antialias: true,
+      maxTileCacheSize: 3000,
+    })
+    // this.map.addControl(new mapboxgl.NavigationControl());
+  }
+  editMap(zoom?:number,long?:any,lat?:any){
+    // this.currentLngLat = (!lat&&!long)?new LngLat(this.lng, this.lat):new LngLat(long,lat);
+
+    this.map = new mapboxgl.Map({
+      container: 'map',
+      style: this.mapStyle,
+      zoom: !zoom ? this.zoom : zoom,
+      minZoom:3,
+      center:this.currentLngLat,
+      antialias: true,
+      maxTileCacheSize: 3000,
+    });
+
+  }
+
+  zoomIn(){
+    this.map?.zoomIn();
+    console.log('zi= ',this.map.zoomIn());
+  }
+  zoomOut(){
+    this.map.zoomOut();
+  }
+
 }
